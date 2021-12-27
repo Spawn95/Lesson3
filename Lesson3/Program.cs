@@ -4,20 +4,29 @@ class Program
 {
     static void Main(string[] args)
     {
-        var contacts = new string[5, 2]
-         {
-            {"Серега","        +7 913 123 11 10"},
-            {"Андрей","        +7 913 664 88 12"},
-            {"Григорий", "     +7 913 331 40 32"},
-            {"Виктор", "       vitek272@mail.ru"},
-            {"Олег Работа", "  olegovoleg1@mai.ru"},
-         };
-        for (var i = 0; i < contacts.GetLength(0); i++)
         {
-            for (var j = 0; j < contacts.GetLength(1); j++)
-                Console.Write(contacts[i, j] + " ");
-            Console.WriteLine();
-            
-        }       
+            Console.WriteLine("Напиши что нибудь ");
+            string word = Console.ReadLine();
+            Console.WriteLine(ReversStr(word));
+            Console.ReadLine();
+        }
+         char[] ReversStr(string str)
+        {
+            char[] array = new char[str.Length];
+            int j = str.Length - 1;
+            for (int i = 0; i < str.Length / 2; i++)
+            {
+                array[i] = str[j];
+                j--;
+            }
+            j = 0;
+            for (int i = str.Length - 1; i >= str.Length / 2; i--)
+            {
+                array[i] = str[j];
+                j++;
+            }
+            return array;
+        }
     }
 }
+
