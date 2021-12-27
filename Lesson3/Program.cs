@@ -1,49 +1,32 @@
 ﻿using System;
 
-namespace Lesson3
+class Program
 {
-    class Program
+    static void Main(string[] args)
     {
-        static void Main(string[] args)
         {
-            int[,] matrix = new int[5, 5];
-            for (int i = 0; i < matrix.GetLength(0); i++)
-                for (int j = 0; j < matrix.GetLength(0); j++)
-                    matrix[i, j] = i + j; ;
-            for (int i = 0; i < matrix.GetLength(0); i++)
+            Console.WriteLine("Напиши что нибудь ");
+            string word = Console.ReadLine();
+            Console.WriteLine(ReversStr(word));
+            Console.ReadLine();
+        }
+         char[] ReversStr(string str)
+        {
+            char[] array = new char[str.Length];
+            int j = str.Length - 1;
+            for (int i = 0; i < str.Length / 2; i++)
             {
-                for (int j = 0; j < matrix.GetLength(1); j++)
-                {
-                    System.Console.Write(matrix[i, j] + " ");
-                }
-                System.Console.WriteLine();
+                array[i] = str[j];
+                j--;
             }
-            Console.WriteLine($"Введите число в интервале от -4 до 4");
-            string W = Console.ReadLine();
-            if (!int.TryParse(W, out var z))
+            j = 0;
+            for (int i = str.Length - 1; i >= str.Length / 2; i--)
             {
-                Console.WriteLine("Некорректный ввод!");
-                return;
+                array[i] = str[j];
+                j++;
             }
-            if (z < -4 || z > 4)
-            {
-                Console.WriteLine("Номер указан не верно!");
-                return;
-            }
-            int number = z ;
-            var T = 5 - z;
-            for (int i = 0, j = 0; i < T || j < T; i++, j++)
-            {
-                int w = z switch
-                {
-                    0 => matrix[i, j],
-                    < 0 => matrix[i, j + number],
-                     _=> matrix[i + number, j]
-                };
-                Console.Write(w + " ");
-            }
+            return array;
         }
     }
 }
-
 
