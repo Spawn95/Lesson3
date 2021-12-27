@@ -22,12 +22,12 @@ namespace Lesson3
             string W = Console.ReadLine();
             if (!int.TryParse(W, out var z))
             {
-                Console.WriteLine("Некорректный ввод!");
+                Console.WriteLine("Некорректный ввод");
                 return;
             }
             if (z < -4 || z > 4)
             {
-                Console.WriteLine("Номер указан не верно!");
+                Console.WriteLine("Номер указан не верно");
                 return;
             }
             int number = z ;
